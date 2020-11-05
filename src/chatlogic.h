@@ -1,27 +1,21 @@
 #ifndef CHATLOGIC_H_
 #define CHATLOGIC_H_
 
+#include <memory>
 #include <vector>
 #include <string>
 #include "chatgui.h"
+#include "chatbot.h"
 
 // forward declarations
-class ChatBot;
 class GraphEdge;
 class GraphNode;
 
 class ChatLogic
 {
 private:
-    //// STUDENT CODE
-    ////
-
     // data handles (owned)
-    std::vector<GraphNode *> _nodes;
-    std::vector<GraphEdge *> _edges;
-
-    ////
-    //// EOF STUDENT CODE
+    std::vector<std::unique_ptr<GraphNode>> _nodes;
 
     // data handles (not owned)
     GraphNode *_currentNode;
